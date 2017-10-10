@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ES">
+    <head>
+       <!-- creo esto no lo pongp por el lang <meta charset="UTF-8" /> -->
+        <title>GCampa: Gestiona campamentos</title>
+        <!-- Cargar Base de datos-->
+        <script type="text/javascript" src="js/basedatos.js"></script>
+        <script type="text/javascript" src="js/main.js" ></script>
+    </head>
+    <body onload="inicioDB();">
+        <input type="text" id="dni" placeholder="Enter dni" />
+        <input type="text" id="name" placeholder="Enter name" />
+        <input type="text" id="surname" placeholder="Enter surname" />
+        <button type="button" onclick="add();">Save</button>
+        <hr />
+        <div id="elements">
+            <table>
+                <caption>Persons</caption>
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Name</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="elementsList">
+                    <tr>
+                        <td colspan="3">Not elements to show</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button type="button" onclick="loadAllByName();">Order by name</button>
+        <button type="button" onclick="Reiniciar();">Reiniciar Proceso</button>
+
+
+        <input type="text" id="dni" placeholder="Enter dni" />
+        <input type="text" id="name" placeholder="Enter name" />
+        <input type="text" id="surname" placeholder="Enter surname" />
+        <button type="button" onclick="add();">Save</button>
+        <hr />
+        <div id="elements">
+            <table>
+                <caption>Persons</caption>
+                <thead>
+                    <tr>
+                        <th>DNI</th>
+                        <th>Name</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody id="elementsList">
+                    <tr>
+                        <td colspan="3">Not elements to show</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+         
+    </body>
+</html>

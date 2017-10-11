@@ -1,14 +1,19 @@
-# GCampa
+#GCampa
 
-Gestion de Campamento
+**Gestión de Campamento**
 
+1. [x]Crear las clases
+2. [x]base de datos
+3. Vistas https://www.polymer-project.org/
+4. cargar archisvos https://github.com/sheetjs/js-xlsx
 
-1-Crear las clases
-2-Metodos de base de datos
-3-Vistas https://www.polymer-project.org/
-4-cargar archisvos https://github.com/sheetjs/js-xlsx
-
-To-Do
---wiki
---subir demo
---version movil
+##To-Do
+***
+  - [ ] cargar data(4)
+  - [ ] Crear reglas
+  - [ ] limpiar template(3)
+***
+  - [x]pagina
+  - [ ]wiki
+  - [ ]subir demo
+  - [ ]version movil

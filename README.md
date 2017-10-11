@@ -13,7 +13,7 @@
   - [ ] Crear reglas
   - [ ] limpiar template(3)
 ***
-  - [x]pagina
-  - [ ]wiki
-  - [ ]subir demo
-  - [ ]version movil
+  - [x] pagina
+  - [ ] wiki
+  - [ ] subir demo
+  - [ ] version movil

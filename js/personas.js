@@ -1,44 +1,28 @@
 
-/*  Clases limpias, Distribución                      */
+function insertarPersona(v_nombre,v_edad,v_sexo,v_barrio) {
+    
+    var active = dataBase.result;
+    var data = active.transaction(["personas"], "readwrite");
+    var object = data.objectStore("personas");
+    
+    var request = object.put({
+        nombre : v_nombre,
+        edad   : v_edad,
+        sexo   : v_sexo,
+        barrio : v_barrio
+    });
+    
+    request.onerror = function (e) {
+        console.log("Error: "+request.error.name + '\n\n' + request.error.message)
+       // alert(request.error.name + '\n\n' + request.error.message);
+    };
 
-function agregarZona(){
-    var descipcion =document.querySelector("#zona_name").value;
-    document.querySelector('#zona_name').value = '';
-    insertarZona(descipcion);
+    data.oncomplete = function (e) {
+     //   alert('Object successfully added');
+        loadAll();
+    };
 }
-function cargarTodo(){
-    cargarZonas();
-}
-
-/*                                  */
-
-/* Esto hay que migrarlo a cada clase */
-
-            function add() {
-                
-                var active = dataBase.result;
-                var data = active.transaction(["people"], "readwrite");
-                var object = data.objectStore("people");
-                
-                var request = object.put({
-                    dni : document.querySelector("#dni").value,
-                    name : document.querySelector("#name").value.toLowerCase(),
-                    surname : document.querySelector("#surname").value
-                });
-                
-                request.onerror = function (e) {
-                    alert(request.error.name + '\n\n' + request.error.message);
-                };
-        
-                data.oncomplete = function (e) {
-                    document.querySelector('#dni').value = '';
-                    document.querySelector('#name').value = '';
-                    document.querySelector('#surname').value = '';
-                    alert('Object successfully added');
-                    loadAll();
-                };
-            }
-            
+  /*          
             function load(id) {
                 
                 var active = dataBase.result;
@@ -173,10 +157,4 @@ function cargarTodo(){
                 
             }
 
-
-            function llenarusuario() {
-                insertarPersona("cesar",28,"M",1);
-                
-            }
-
- 
+            */

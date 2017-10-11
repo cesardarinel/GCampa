@@ -1,62 +1,157 @@
 <!DOCTYPE html>
 <html lang="ES">
-    <head>
-       <!-- creo esto no lo pongp por el lang <meta charset="UTF-8" /> -->
-        <title>GCampa: Gestiona campamentos</title>
-        <!-- Cargar Base de datos-->
-        <script type="text/javascript" src="js/basedatos.js"></script>
-        <script type="text/javascript" src="js/main.js" ></script>
-    </head>
-    <body onload="inicioDB();">
-        <input type="text" id="dni" placeholder="Enter dni" />
-        <input type="text" id="name" placeholder="Enter name" />
-        <input type="text" id="surname" placeholder="Enter surname" />
-        <button type="button" onclick="add();">Save</button>
-        <hr />
-        <div id="elements">
-            <table>
-                <caption>Persons</caption>
-                <thead>
-                    <tr>
-                        <th>DNI</th>
-                        <th>Name</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody id="elementsList">
-                    <tr>
-                        <td colspan="3">Not elements to show</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <button type="button" onclick="loadAllByName();">Order by name</button>
-        <button type="button" onclick="Reiniciar();">Reiniciar Proceso</button>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- creo esto no lo pongp por el lang <meta charset="UTF-8" /> -->
+      <title>GCampa: Gestiona campamentos</title>
+      <!-- Bootstrap CSS  -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+      <!-- Bootstrap JavaScript-->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+      
+      <!-- Cargar Base de datos-->
+      <script type="text/javascript" src="js/barrios.js"></script>
+      <script type="text/javascript" src="js/zona.js"></script>
+      <script type="text/javascript" src="js/chozas.js"></script>
+      <script type="text/javascript" src="js/personas.js"></script>
+      <script type="text/javascript" src="js/basedatos.js"></script>
+      <!-- Cargar Controlador-->
+      <script type="text/javascript" src="js/main.js" ></script>
 
 
-        <input type="text" id="dni" placeholder="Enter dni" />
-        <input type="text" id="name" placeholder="Enter name" />
-        <input type="text" id="surname" placeholder="Enter surname" />
-        <button type="button" onclick="add();">Save</button>
-        <hr />
-        <div id="elements">
-            <table>
-                <caption>Persons</caption>
-                <thead>
-                    <tr>
-                        <th>DNI</th>
-                        <th>Name</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody id="elementsList">
-                    <tr>
-                        <td colspan="3">Not elements to show</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-         
-    </body>
+   </head>
+   <body onload="inicioDB();">
+      <!-- Menu template -->
+      <div class="container">
+         <div class="header clearfix">
+            <nav>
+               <ul class="nav nav-pills float-right">
+                  <!--
+                     <li class="nav-item">
+                       <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                       <a class="nav-link" href="#">Contact</a>
+                     </li>
+                     -->
+               </ul>
+            </nav>
+            <h3 class="text-muted">GCampa</h3>
+         </div>
+         <div class="jumbotron">
+            <h1 class="display-3">Distribución de jovenes</h1>
+            <p class="lead">.....</p>
+            <!-- <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p> -->
+         </div>
+         <!--  -->
+         <div class="container">
+            <div class="row">
+               <div class="col">
+                   <hr />
+                  <input type="text" id="zona_name" placeholder="Nombre Estacas" />
+                  <button type="button" onclick="agregarZona();">Save</button>
+                  <hr />
+                  <div id="elements">
+                     <table>
+                        <caption>Estacas</caption>
+                        <thead>
+                           <tr>
+                              <th>Descripción</th>
+                           </tr>
+                        </thead>
+                        <tbody id="ListaEstacas">
+                           <tr>
+                              <td colspan="3">Not elements to show</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="col">
+                   <hr />
+                  <input type="text" id="name" placeholder="Nombre Barrios" />
+                  <input type="text" id="name" placeholder="Estaca a que pertenece " />
+                  <button type="button" onclick="add();">Save</button>
+                  <hr />
+                  <div id="elements">
+                     <table>
+                        <caption>Barrio</caption>
+                        <thead>
+                           <tr>
+                              <th>Descripción</th>
+                              <th>Codigo Estaca</th>
+                           </tr>
+                        </thead>
+                        <tbody id="elementsList">
+                           <tr>
+                              <td colspan="3">Not elements to show</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col">
+                   <hr />
+                  <input type="text" id="name" placeholder="Nombre Choza" />
+                  <input type="text" id="name" placeholder="Sexo Permitido" />
+                  <button type="button" onclick="add();">Save</button>
+                  <hr />
+                  <div id="elements">
+                     <table>
+                        <caption>Choza</caption>
+                        <thead>
+                           <tr>
+                              <th>Descripción</th>
+                           </tr>
+                        </thead>
+                        <tbody id="elementsList">
+                           <tr>
+                              <td colspan="3">Not elements to show</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="col">
+                   <hr />
+                  <input type="text" id="name" placeholder="Nombre Jovenen" />
+                  <input type="text" id="name" placeholder="Sexo" />
+                  <input type="text" id="name" placeholder="edad" />
+                  <input type="text" id="name" placeholder="Barrio" />
+                  <button type="button" onclick="add();">Save</button>
+                  <hr />
+                  <div id="elements">
+                     <table>
+                        <caption>Jovenes</caption>
+                        <thead>
+                           <tr>
+                              <th>Descripción</th>
+                           </tr>
+                        </thead>
+                        <tbody id="elementsList">
+                           <tr>
+                              <td colspan="3">Not elements to show</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- <button type="button" onclick="loadAllByName();">Order by name</button>   -->
+         <footer class="footer">
+            <p>&copy; Company 2017</p>
+         </footer>
+      </div>
+   </body>
 </html>

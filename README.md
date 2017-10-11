@@ -2,10 +2,10 @@
 
 **Gestión de Campamento**
 
-1. [x]Crear las clases
-2. [x]base de datos
+1. [x] Crear las clases
+2. [x] Base de datos( Falta Tabla Resultado, se maneja en Excel )
 3. Vistas https://www.polymer-project.org/
-4. cargar archisvos https://github.com/sheetjs/js-xlsx
+4. Cargar archisvos https://github.com/sheetjs/js-xlsx
 
 ##To-Do
 ***

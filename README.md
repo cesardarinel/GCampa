@@ -1,4 +1,4 @@
-#GCampa
+# GCampa
 
 **Gestión de Campamento**
 
@@ -7,7 +7,7 @@
 3. Vistas https://www.polymer-project.org/
 4. Cargar archisvos https://github.com/sheetjs/js-xlsx
 
-##To-Do
+## To-Do
 ***
   - [ ] cargar data(4)
   - [ ] Crear reglas

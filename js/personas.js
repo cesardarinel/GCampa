@@ -19,7 +19,7 @@ function insertarPersona(v_nombre,v_edad,v_sexo,v_barrio) {
 
     data.oncomplete = function (e) {
      //   alert('Object successfully added');
-        loadAll();
+      //  loadAll();
     };
 }
   /*          

@@ -1,11 +1,12 @@
 
-function insertarZona(v_descripcion) {
+function insertarZona(v_id,v_descripcion) {
     
     var active = dataBase.result;
     var data = active.transaction(["zona"], "readwrite");
     var object = data.objectStore("zona");
     
     var request = object.put({
+        id : v_id,
         descripcion : v_descripcion
     });
     
@@ -54,7 +55,7 @@ function cargarZonas() {
                             <td>' + elements[key].id + '</td>\n\
                             <td>' + elements[key].descripcion + '</td>\n\
                             <td>\n\
-                                <button type="button" onclick="load(' + elements[key].id + ');">Details</button>\n\
+                                <button type="button" onclick="load(' + elements[key].id + ');">Modificar</button>\n\
                             </td>\n\
                         </tr>';                        
                     }

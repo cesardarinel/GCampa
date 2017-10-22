@@ -12,17 +12,17 @@ function inicioDB() {
 
         var persona = active.createObjectStore('personas', { keyPath : 'id', autoIncrement : true });
         persona.createIndex('nombre', 'nombre', { unique : false });
-        persona.createIndex('edad', 'edad', { unique : true});
-        persona.createIndex('sexo', 'sexo', { unique : true});
-        persona.createIndex('barrio', 'barrio', { unique : true});
+        persona.createIndex('edad', 'edad', { unique : false});
+        persona.createIndex('sexo', 'sexo', { unique : false});
+        persona.createIndex('barrio', 'barrio', { unique : false});
 
         var zona = active.createObjectStore('zona', { keyPath : 'id', autoIncrement : true });
-        zona.createIndex('descripcion', 'descripcion', { unique : true});
+        zona.createIndex('descripcion', 'descripcion', { unique : false});
         //  zona.createIndex('codigo', 'codigo', { unique : false });
 
         var barrio = active.createObjectStore('barrios', { keyPath : 'id', autoIncrement : true });
         barrio.createIndex('zona', 'zona', { unique : false });
-        barrio.createIndex('descripcion', 'descripcion', { unique : true});
+        barrio.createIndex('descripcion', 'descripcion', { unique : false});
         //  barrio.createIndex('codigo', 'codigo', { unique : false });
 
         var chosas = active.createObjectStore('chozas', { keyPath : 'id', autoIncrement : true });

@@ -1,3 +1,4 @@
+document.getElementById("loader").style.display = "none";
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
@@ -70,3 +71,4 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+/* */

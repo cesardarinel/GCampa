@@ -1,37 +1,36 @@
 
-function insertarChozas(v_sexo,v_descripcion) {
+function insertarChozas(v_sexo,v_descripcion,v_cantidad) {
     
-    var active = dataBase.result;
-    var data = active.transaction(["chozas"], "readwrite");
-    var object = data.objectStore("chozas");
+    let active = dataBase.result;
+    let data = active.transaction(["chozas"], "readwrite");
+    let object = data.objectStore("chozas");
     
-    var request = object.put({
+    let request = object.put({
         sexo        : v_sexo,
-        descripcion : v_descripcion
+        descripcion : v_descripcion,
+        cantidad    : v_cantidad
     });
     
     request.onerror = function (e) {
         console.log("Error: "+request.error.name + '\n\n' + request.error.message)
-       // alert(request.error.name + '\n\n' + request.error.message);
     };
 
     data.oncomplete = function (e) {
-     //   alert('Object successfully added');
         CargarChozas();
     };
 }
 
 function CargarChozas() {
                 
-                var active = dataBase.result;
-                var data = active.transaction(["chozas"], "readonly");
-                var object = data.objectStore("chozas");
+    let active = dataBase.result;
+    let data = active.transaction(["chozas"], "readonly");
+    let object = data.objectStore("chozas");
                 
-                var elements = [];
+    let elements = [];
                 
                 object.openCursor().onsuccess = function (e) {
                     
-                    var result = e.target.result;
+                    let result = e.target.result;
                     
                     if (result === null) {
                         return;
@@ -43,24 +42,7 @@ function CargarChozas() {
                 };
                 
                 data.oncomplete = function() {
-                    
-                    var outerHTML = '';
-                    
-                    for (var key in elements) {
-                        
-                        outerHTML += '\n\
-                        <tr>\n\
-                            <td>' + elements[key].dni + '</td>\n\
-                            <td>' + elements[key].name + '</td>\n\
-                            <td>\n\
-                                <button type="button" onclick="load(' + elements[key].id + ');">Details</button>\n\
-                                <button type="button" onclick="loadByDni(' + elements[key].dni + ');">Details DNI</button>\n\
-                            </td>\n\
-                        </tr>';                        
-                    }
-                    
-                    elements = [];
-                    document.querySelector("#elementsList").innerHTML = outerHTML;
+                  //cuando completa 
                 };
                 
-            }
+}

@@ -28,24 +28,17 @@ function inicioDB() {
         var chosas = active.createObjectStore('chozas', { keyPath : 'id', autoIncrement : true });
         chosas.createIndex('sexo', 'sexo', { unique : false });
         chosas.createIndex('descripcion', 'descripcion', { unique : false });
-/*
-        var object = active.createObjectStore('people', { keyPath : 'id', autoIncrement : true });
-        object.createIndex('by_name', 'name', { unique : false });
-        object.createIndex('by_dni', 'dni', { unique : true});
-*/      
     };
     
     dataBase.onsuccess = function (e) {
         //comentar para performer
         console.log(e);
-       // alert('Database loaded');
         cargarTodo();
     };
     
     dataBase.onerror = function (e) {
         //comentar para performer
         console.log(e);
-       // alert('Error loading database');
     };
 }
 
